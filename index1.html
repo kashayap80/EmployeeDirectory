@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Directory - Integrated View</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index1.html" class="brand">
+                <img src="assets/logo.png" alt="Employee Directory Logo">
+                <h1>Employee Directory</h1>
+            </a>
+            <div class="nav-links">
+                <a href="#directory-section" class="active">
+                    <i class="fas fa-users"></i>
+                    Directory
+                </a>
+                <a href="#departments-section">
+                    <i class="fas fa-building"></i>
+                    Departments
+                </a>
+            </div>
+            <div class="nav-right">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="globalSearch" placeholder="Search employees or departments...">
+                </div>
+                <button class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="loginBtn" class="btn-primary">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Login
+                </button>
+                <div id="adminDropdown" class="admin-dropdown" style="display: none;">
+                    <button class="btn-secondary">
+                        <i class="fas fa-user-circle"></i>
+                        Admin
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Directory Section -->
+        <section id="directory-section" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Employee Directory</h2>
+                    <div class="controls">
+                        <div class="sort-dropdown">
+                            <label for="sortSelect" class="visually-hidden">Sort employees by</label>
+                            <select id="sortSelect" aria-label="Sort employees">
+                                <option value="">Sort By</option>
+                                <option value="name">Name</option>
+                                <option value="department">Department</option>
+                                <option value="joiningDate">Joining Date</option>
+                                <option value="position">Position</option>
+                            </select>
+                        </div>
+                        <button id="addEmployeeBtn" class="btn-primary" style="display: none;" aria-label="Add new employee">
+                            <i class="fas fa-plus" aria-hidden="true"></i> Add Employee
+                        </button>
+                    </div>
+                </div>
+                <div id="employeeGrid" class="employee-grid" role="grid" aria-label="Employee list"></div>
+            </div>
+        </section>
+
+        <!-- Departments Section -->
+        <section id="departments-section" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Departments</h2>
+                </div>
+                <div class="departments-list" role="list" aria-label="Department list">
+                    <div class="department-item" role="listitem" tabindex="0">
+                        <div class="department-icon">
+                            <i class="fas fa-code" aria-hidden="true"></i>
+                        </div>
+                        <div class="department-info">
+                            <h3>Engineering</h3>
+                            <p>Software development and technical innovation</p>
+                            <span class="employee-count">32 Employees</span>
+                        </div>
+                    </div>
+                    <div class="department-item" role="listitem" tabindex="0">
+                        <div class="department-icon">
+                            <i class="fas fa-bullhorn" aria-hidden="true"></i>
+                        </div>
+                        <div class="department-info">
+                            <h3>Marketing</h3>
+                            <p>Brand strategy and market research</p>
+                            <span class="employee-count">18 Employees</span>
+                        </div>
+                    </div>
+                    <div class="department-item" role="listitem" tabindex="0">
+                        <div class="department-icon">
+                            <i class="fas fa-chart-line" aria-hidden="true"></i>
+                        </div>
+                        <div class="department-info">
+                            <h3>Sales</h3>
+                            <p>Client relations and revenue growth</p>
+                            <span class="employee-count">24 Employees</span>
+                        </div>
+                    </div>
+                    <div class="department-item" role="listitem" tabindex="0">
+                        <div class="department-icon">
+                            <i class="fas fa-users" aria-hidden="true"></i>
+                        </div>
+                        <div class="department-info">
+                            <h3>Human Resources</h3>
+                            <p>Employee management and recruitment</p>
+                            <span class="employee-count">12 Employees</span>
+                        </div>
+                    </div>
+                    <div class="department-item" role="listitem" tabindex="0">
+                        <div class="department-icon">
+                            <i class="fas fa-calculator" aria-hidden="true"></i>
+                        </div>
+                        <div class="department-info">
+                            <h3>Finance</h3>
+                            <p>Financial planning and accounting</p>
+                            <span class="employee-count">15 Employees</span>
+                        </div>
+                    </div>
+                    <div class="department-item" role="listitem" tabindex="0">
+                        <div class="department-icon">
+                            <i class="fas fa-cogs" aria-hidden="true"></i>
+                        </div>
+                        <div class="department-info">
+                            <h3>Operations</h3>
+                            <p>Business processes and logistics</p>
+                            <span class="employee-count">20 Employees</span>
+                        </div>
+                    </div>
+                    <div class="department-item" role="listitem" tabindex="0">
+                        <div class="department-icon">
+                            <i class="fas fa-flask" aria-hidden="true"></i>
+                        </div>
+                        <div class="department-info">
+                            <h3>Research & Development</h3>
+                            <p>Product innovation and research</p>
+                            <span class="employee-count">16 Employees</span>
+                        </div>
+                    </div>
+                    <div class="department-item" role="listitem" tabindex="0">
+                        <div class="department-icon">
+                            <i class="fas fa-laptop" aria-hidden="true"></i>
+                        </div>
+                        <div class="department-info">
+                            <h3>IT Support</h3>
+                            <p>Technical infrastructure and support</p>
+                            <span class="employee-count">10 Employees</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Add/Edit Employee Modal -->
+    <div id="addEmployeeModal" class="modal" role="dialog" aria-labelledby="addEmployeeTitle" aria-hidden="true">
+        <div class="modal-content">
+            <span id="closeAddForm" class="close" aria-label="Close modal">&times;</span>
+            <h2 id="addEmployeeTitle">Add/Edit Employee</h2>
+            <form id="addEmployeeForm">
+                <div class="form-group">
+                    <label for="empFirstName">First Name*</label>
+                    <input type="text" id="empFirstName" required aria-required="true">
+                </div>
+
+                <div class="form-group">
+                    <label for="empLastName">Last Name*</label>
+                    <input type="text" id="empLastName" required aria-required="true">
+                </div>
+
+                <div class="form-group">
+                    <label for="empDept">Department*</label>
+                    <select id="empDept" required aria-required="true">
+                        <option value="">Select Department</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Sales">Sales</option>
+                        <option value="HR">Human Resources</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Operations">Operations</option>
+                        <option value="Research">Research & Development</option>
+                        <option value="IT">IT Support</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="empPosition">Position*</label>
+                    <input type="text" id="empPosition" required aria-required="true">
+                </div>
+
+                <div class="form-group">
+                    <label for="empJoinDate">Date of Joining*</label>
+                    <input type="date" id="empJoinDate" required aria-required="true">
+                </div>
+
+                <div class="form-group">
+                    <label for="empImage">Profile Image URL</label>
+                    <input type="text" id="empImage" aria-describedby="imagePreviewLabel">
+                    <img id="imagePreview" src="https://via.placeholder.com/150" alt="Profile image preview" aria-label="Profile image preview">
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Save Employee</button>
+                    <button type="button" class="btn-secondary" onclick="document.getElementById('addEmployeeModal').style.display='none'">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Department Details Modal -->
+    <div id="departmentModal" class="modal" role="dialog" aria-labelledby="departmentDetailsTitle" aria-hidden="true">
+        <div class="modal-content">
+            <div id="departmentDetails"></div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal" role="dialog" aria-labelledby="loginTitle" aria-hidden="true">
+        <div class="modal-content">
+            <span id="closeModal" class="close" aria-label="Close modal">&times;</span>
+            <h2 id="loginTitle">Admin Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required aria-required="true">
+                </div>
+                <p id="loginError" class="error" aria-live="polite"></p>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About TechCorp</h3>
+                    <p>Leading innovation in technology solutions for tomorrow's challenges.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#directory-section">Directory</a></li>
+                        <li><a href="#departments-section">Departments</a></li>
+                        <li><a href="#">Resources</a></li>
+                        <li><a href="#">Policies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="mailto:contact@techcorp.com">contact@techcorp.com</a></li>
+                        <li><a href="tel:(555)123-4567">(555) 123-4567</a></li>
+                        <li>123 Tech Street, City, Country</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 TechCorp. All rights reserved.</p>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Accessibility</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html> 
